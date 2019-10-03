@@ -5,4 +5,5 @@ function arrayOutput(array){
         console.log(array[i]);
     }
 }
+
 module.exports = arrayOutput;

@@ -6,4 +6,5 @@ function isHaveAllSameElements(arr) {
     }
     return true;
 }
+
 module.exports = isHaveAllSameElements;

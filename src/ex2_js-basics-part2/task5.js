@@ -7,4 +7,5 @@ function findMaxElement(arr) {
     }
     return maxElement;
 }
+
 module.exports = findMaxElement;

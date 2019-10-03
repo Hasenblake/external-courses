@@ -4,4 +4,5 @@ function strAndNumTypeCheck(arg){
       }
     return undefined;
 }
+
 module.exports = strAndNumTypeCheck;
