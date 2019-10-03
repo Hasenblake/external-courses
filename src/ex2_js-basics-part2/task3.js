@@ -16,5 +16,4 @@ function showArrayOfEvenCount(arr){
     }
     console.log(output);
 }
-
 module.exports = showArrayOfEvenCount;
