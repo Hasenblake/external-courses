@@ -1,8 +1,8 @@
-function arrayOutput(array){
-    console.log("Число элементов: " + array.length);
+function arrayOutput(arr){
+    console.log("Число элементов: " + arr.length);
     console.log("Элементы:");
-    for (let i = 0; i<array.length; i++){
-        console.log(array[i]);
+    for (let i = 0; i<arr.length; i++){
+        console.log(arr[i]);
     }
 }
 module.exports = arrayOutput;
