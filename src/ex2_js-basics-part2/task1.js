@@ -1,5 +1,5 @@
 function strAndNumTypeCheck(arg){
-    if (typeof arg === "string" || typeof(arg) === "number" && arg === arg) {
+    if (typeof arg === "string" || typeof(arg) === "number") {
         return typeof arg;
       }
     return undefined;
