@@ -1,6 +1,7 @@
 function propertyInProto(prop, obj) {
-    if (prop in obj.__proto__) {
+    if (prop in Object.getPrototypeOf(obj)) {
         return obj[prop];
     }
+    return undefined;
 }
 module.exports = propertyInProto;
