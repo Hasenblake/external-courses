@@ -1,10 +1,4 @@
 function copyObject(obj) {
-    const newObj = {};
-    for (let key in obj){
-        if (obj.hasOwnProperty(key)) {
-            newObj[key] = obj[key];
-        }
-    }
-    return newObj;
+    return Object.assign({}, obj);
 }
 module.exports = copyObject;

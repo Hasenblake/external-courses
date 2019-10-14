@@ -1,27 +1,20 @@
 function deepCopyObject(oldObj) {
-    const newObj = {};
-    for (let key in oldObj) {
-        if (oldObj.hasOwnProperty(key)) {
-            if (typeof oldObj[key] === 'object') {
-                if ('length' in oldObj[key]){
-                    arrayCopy = function(objKey) {
-                        const newArray = []
-                        for (let i = 0; i < objKey.length; i++){
-                            if (typeof objKey[i] === 'object') {
-                                deepCopyObject(objKey[i])
-                            }
-                            newArray.push(objKey[i]);
+    const newObj = (oldObj instanceof Array) ? [] : {};
+    Object.assign(newObj, oldObj);
+    for (let key1 in newObj) {
+        if (newObj.hasOwnProperty(key1)) {
+            if (typeof newObj[key1] === 'object') {
+                if (oldObj[key1] instanceof Array){
+                    newObj[key1] = Object.assign([], oldObj[key1]);
+                    for (let key2 in newObj[key1]){
+                        if (typeof oldObj[key1][key2] === 'object') {
+                            newObj[key1][key2] = deepCopyObject(oldObj[key1][key2]);
                         }
-                        return newArray;
                     }
-                    newObj[key] = arrayCopy(oldObj[key]);
                 }
                 else {
-                    newObj[key] = deepCopyObject(oldObj[key]);
+                    newObj[key1] = deepCopyObject(oldObj[key1]);
                 }
-            }
-            else{
-                newObj[key] = oldObj[key];
             }
         }
     }
