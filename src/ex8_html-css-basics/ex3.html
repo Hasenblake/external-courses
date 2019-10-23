@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Рамки CSS</title>
+    <style>
+        div{
+            width: 200px;
+            padding: 10px;
+            margin-bottom: 10px;
+            background-color: darkblue;
+            color: white;
+            text-align: center;
+        }
+        #border{
+            border: 2px dashed green;
+        }
+        #outline{
+           outline: 2px dashed green;
+        }
+        #box-shadow{
+            box-shadow: 2px 2px 0 0 green,
+                        0 0 2px 2px green;
+        }
+        #border-image{
+
+            border-style: solid;
+            border-image-source: url(https://image.shutterstock.com/z/stock-photo-wood-frame-isolated-on-white-background-1454081207.jpg);
+            border-image-slice: 90;
+            border-image-repeat: round;
+        }
+        #gradient{
+            background: linear-gradient(to top, green 20%, transparent 20%, transparent 80%, green 80%),
+                    linear-gradient(to right, green 5%, transparent 5%, transparent 95%, green 5%),
+                    darkblue;
+        }
+    </style>
+</head>
+<body>
+    <div id="border">Рамка 1 - border</div>
+    <div id="outline">Рамка 2 - outline</div>
+    <div id="box-shadow">Рамка 3 - box-shadow</div>
+    <div id="border-image">Рамка 4 - border-image</div>
+    <div id="gradient">Рамка 5 - градиент</div>
+</body>
+</html>
