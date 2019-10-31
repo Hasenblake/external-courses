@@ -1,11 +1,11 @@
 function reduceAnalog(array, callback, initialValue) {
     const newArr = array;
     let previousValue;
-    if (typeof initialValue !== 'undefined'){
+    if (initialValue !== undefined){
         previousValue = initialValue;
     }
     for (let i = 0; i < newArr.length; i++){
-        if (typeof previousValue === 'undefined'){
+        if (previousValue === undefined){
             previousValue = newArr[i];
         }
         else {
