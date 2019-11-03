@@ -5,17 +5,13 @@ main{
     display: flex;
     flex-flow: row wrap;
 }
-main *{
-    flex: 100%;
-}
 header {
     background: lightblue;
+    flex: 100%;
 }
 section {
     background: lightgreen;
-    width: 75%;
     flex: 3;
-
 }
 article {
     background: white;
@@ -23,7 +19,6 @@ article {
 }
 aside {
     background: pink;
-    width: 25%;
     flex: 1;
 
 }
