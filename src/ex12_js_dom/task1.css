@@ -1,0 +1,49 @@
+#body{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    margin: 0;
+}
+#screen{
+    max-width: 70%;
+    min-width: 70%;
+    height: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 70%;
+    overflow: hidden;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+}
+.directionButtons{
+    margin: 0 5% 0;
+    border: 1px solid darkcyan;
+    box-shadow: 0 0 0 4px rgba(0, 139, 139, 0.1);
+    background-color: #e2ffff;
+    border-radius: 30%;
+    outline: none;
+    width:  4vw;
+    height: 4vw;
+    font:  3vw sans-serif;
+    z-index: 3;
+    color: darkcyan;
+}
+.directionButtons:focus, .directionButtons:active, .directionButtons:hover{
+    border: 1px solid darkorange;
+    box-shadow: 0 0 0 7px rgba(255, 140, 0, 0.1);
+    background-color: white;
+    color: darkorange;
+    cursor: pointer;
+}
+.directionButtons:focus, .directionButtons:active{
+    border: 1px solid red;
+    color: red;
+}
+
+
