@@ -3,47 +3,47 @@ div{
     height: 220px;
     width: 400px;
 }
-div div{
+.divInside{
     position: relative;
 }
-#div11{
+.top{
     z-index: 3;
 }
-#div12{
+.middle{
     background-color: rgb(144, 205, 175);
     left: 5px;
     top: -215px;
     z-index: 2;
 }
-#div13{
+.bottom{
     background-color: rgb(191, 227, 209);
     left: 10px;
     top: -430px;
     z-index: 1;
 }
-#div2 {
+.divShadow {
     margin-top: 50px;
     top: 300px;
     box-shadow: 5px 5px 0 0 rgb(144, 205, 175),
                 10px 10px 0 0 rgb(191, 227, 209);
 }
-#div3 {
+.divPseudoElem {
     margin-top: 50px;
     position: relative;
 }
-#div3::after {
+.divPseudoElem::after {
     background: rgb(144, 205, 175);
     top: 5px;
     left: 5px;
     z-index: -1;
 }
-#div3::before {
+.divPseudoElem::before {
     background: rgb(191, 227, 209);
     top: 10px;
     left: 10px;
     z-index: -2;
 }
-#div3::after, #div3::before {
+.divPseudoElem::after, .divPseudoElem::before {
     height: 220px;
     width: 400px;
     content: '';

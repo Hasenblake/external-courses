@@ -20,7 +20,6 @@ article {
 aside {
     background: pink;
     flex: 1;
-
 }
 header, article, section, .module {
     padding: 1rem;
