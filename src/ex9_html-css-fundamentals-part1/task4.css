@@ -1,0 +1,53 @@
+div{
+    background-color: rgb(96, 184, 141);
+    height: 220px;
+    width: 400px;
+}
+.divInside{
+    position: relative;
+}
+.top{
+    z-index: 3;
+}
+.middle{
+    background-color: rgb(144, 205, 175);
+    left: 5px;
+    top: -215px;
+    z-index: 2;
+}
+.bottom{
+    background-color: rgb(191, 227, 209);
+    left: 10px;
+    top: -430px;
+    z-index: 1;
+}
+.divShadow {
+    margin-top: 50px;
+    top: 300px;
+    box-shadow: 5px 5px 0 0 rgb(144, 205, 175),
+                10px 10px 0 0 rgb(191, 227, 209);
+}
+.divPseudoElem {
+    margin-top: 50px;
+    position: relative;
+}
+.divPseudoElem::after {
+    background: rgb(144, 205, 175);
+    top: 5px;
+    left: 5px;
+    z-index: -1;
+}
+.divPseudoElem::before {
+    background: rgb(191, 227, 209);
+    top: 10px;
+    left: 10px;
+    z-index: -2;
+}
+.divPseudoElem::after, .divPseudoElem::before {
+    height: 220px;
+    width: 400px;
+    content: '';
+    position: absolute;
+}
+
+
