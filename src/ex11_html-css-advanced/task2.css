@@ -1,0 +1,51 @@
+@keyframes labelOut{
+    from{
+        top: 5vh;
+    }
+    to{
+        top: 3vh;
+    }
+}
+@keyframes hide {
+    from{opacity: 1}
+    to{opacity: 0}
+}
+@keyframes blockHide {
+    0% {height: calc(2vh - 1px);
+        width: 10vh;}
+    99%{
+        height: calc(2vh - 1px);
+        width: 10vh;
+    }
+}
+.text{
+    position:absolute;
+    left: 5vw;
+    top: 5vh;
+    z-index: 1
+}
+.field { position:absolute;
+    font-family: Arial, serif;
+    font-weight: bold;
+    left: 5vw;
+    top: 5vh;
+}
+.blockingDiv{
+    position: absolute;
+    background-color: white;
+    height: 0;
+    width: 0;
+    left: 5vw;
+    top: 3vh;
+    z-index: 2;
+    animation: blockHide 0.45s;
+}
+input:invalid + label {top: 3vh;
+    animation: hide 0.5s;
+    opacity: 0;}
+input:valid + label {
+    top:3vh;
+    color:gray;
+    animation: labelOut 0.5s;
+}
+input:focus + label { color: #0067A3;}

@@ -1,0 +1,102 @@
+body{
+    margin: 0 0 0 1vw;
+}
+.wall1, .wall2{
+    background-color: black;
+    height: 10vh;
+    width: 1vw;
+    position: absolute;
+}
+.wall2{
+    left: 20vw;
+}
+.jumpingBall{
+    position: absolute;
+    background-color: red;
+    height: 5vh;
+    width: 5vh;
+    top: 2.5vh;
+    border-radius: 50%;
+    animation: jump 1.5s cubic-bezier(.7,0,.3,1) alternate infinite;
+}
+@keyframes jump{
+    from {left: 2vw;}
+    to {left: calc(20vw - 5vh)}
+}
+
+.loader{
+    position: absolute;
+    top: 20vh;
+    background: radial-gradient(circle at 5vh 0.5vh, red 10px, black 20px);
+    height: 10vh;
+    width: 10vh;
+    left: 4vw;
+    border-radius: 50%;
+    animation: load linear 1s infinite;
+}
+.loaderCircle{
+    position: absolute;
+    top: 1vh;
+    left: 1vh;
+    background-color: white;
+    height: 8vh;
+    width: 8vh;
+    z-index: 1;
+    border-radius: 50%;
+}
+@keyframes load{
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.infinite{
+    position: absolute;
+    left: 4vw;
+    top: 40vh;
+    height: 100px;
+    width: 100px;
+    animation: infinity ease infinite 5s;
+}
+@keyframes infinity {
+    0% {
+        border-radius: 50%;
+        background: linear-gradient(black 40%, red);
+    }
+    20% {
+        border-radius: 0;
+    }
+    25% {
+        background-image: radial-gradient(at bottom,
+        red 0%, black 100%);
+    }
+    30%{
+        transform: skewX(-25deg);
+        height: 150px;
+        width: 90px;
+    }
+    40%{
+        transform: rotate(50deg);
+    }
+    70%{
+        background: linear-gradient(black 40%, blueviolet);
+    }
+    75%{
+        background-color: black;
+        box-shadow: 0 -40px 40px blueviolet inset;
+    }
+    80%{
+        box-shadow: 0 -20px 20px 20px blueviolet inset;
+    }
+    85%{
+        box-shadow: 0 -10px 10px 10px blueviolet inset;
+    }
+    100%{
+        box-shadow: none;
+        border-radius: 50%;
+        background-color: black;
+    }
+}
