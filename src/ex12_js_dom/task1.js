@@ -1,57 +1,59 @@
-const idScreen = document.getElementById('screen'),
-    idBody = document.getElementById('body'),
-    previous = document.getElementById('previous'),
-    next = document.getElementById('next'),
-    imgArray = ["asset/wide-panorama.jpg","asset/little-kitten.jpg",
+const screen = document.getElementsByClassName('screen')[0];
+const toPreviousImgButton = document.getElementsByClassName('toPreviousImgButton')[0];
+const toNextImgButton = document.getElementsByClassName('toNextImgButton')[0];
+const imgCollection = ["asset/wide-panorama.jpg","asset/little-kitten.jpg",
                 "asset/friends.jpg", "asset/clock.jpg", "asset/cat3149.jpg"];
+let animationTimer;
 
 window.onload = createImg;
 window.addEventListener('resize', resizeImg);
-next.addEventListener('click', createImg);
-next.addEventListener('click', switchImg);
-previous.addEventListener('click', createImg);
-previous.addEventListener('click', switchImg);
+toNextImgButton.addEventListener('click', createImg);
+toNextImgButton.addEventListener('click', switchImg);
+toPreviousImgButton.addEventListener('click', createImg);
+toPreviousImgButton.addEventListener('click', switchImg);
 
-function arrNext(imgArray) {
-    imgArray.push(imgArray.shift());
+function moveFirstElemToEnd(arr) {
+    arr.push(arr.shift());
 }
-function arrPrev(imgArray) {
-    imgArray.unshift(imgArray.pop());
 
+function moveLastElemToStart(arr) {
+    arr.unshift(arr.pop());
 }
+
 function createImg() {
     if (document.getElementsByClassName('img')[1] !== undefined){
-        idScreen.removeChild(document.getElementsByClassName('img')[0]);
+        screen.removeChild(document.getElementsByClassName('img')[0]);
     }
     let newImg = document.createElement('img');
-    if (event.target.id === 'next'){
-        arrNext(imgArray)
+    if (event.target === toNextImgButton){
+        moveFirstElemToEnd(imgCollection)
     } else {
-        arrPrev(imgArray);
+        moveLastElemToStart(imgCollection);
     }
-    newImg.src = imgArray[0];
+    newImg.src = imgCollection[0];
     newImg.className = 'img';
     newImg.style.order = '1';
     newImg.onload = function() {
         if (newImg.naturalHeight < newImg.naturalWidth ){
-            if (newImg.naturalWidth < idScreen.clientWidth){
+            if (newImg.naturalWidth < screen.clientWidth){
                 newImg.style.width = newImg.naturalWidth + '';
             } else {
                 newImg.style.width = '100%';
                 newImg.style.height = 'auto';
             }
         } else {
-            if (newImg.naturalHeight < idScreen.clientHeight){
+            if (newImg.naturalHeight < screen.clientHeight){
                 newImg.style.height = newImg.naturalHeight + '';
             } else {
                 newImg.style.height = '100%';
                 newImg.style.width = 'auto';
             }
         }
-        idScreen.appendChild(newImg);
+        screen.appendChild(newImg);
         resizeImg();
     }
 }
+
 function resizeImg() {
     let oldImg;
     if (document.getElementsByClassName('img')[1] !== undefined){
@@ -59,28 +61,30 @@ function resizeImg() {
     } else {
         oldImg= document.getElementsByClassName('img')[0];
     }
-    if (oldImg.height > idScreen.clientHeight){
+    if (oldImg.height > screen.clientHeight){
         oldImg.style.height = '100%';
         oldImg.style.width = 'auto';
     }
-    if (oldImg.width > idScreen.clientWidth){
+    if (oldImg.width > screen.clientWidth){
         oldImg.style.width = '100%';
         oldImg.style.height = 'auto';
     }
 }
+
 function switchImg() {
     let oldImg = document.getElementsByClassName('img')[0];
     oldImg.style.opacity = '1';
-    oldImg.style.order = event.target.id === 'next' ? '0': '2';
-    function animateImg(){
-        oldImg.style.height = oldImg.height * 0.9 + 'px';
-        oldImg.style.width = oldImg.width * 0.9 + 'px';
-        oldImg.style.opacity *= 0.9;
-        if ((oldImg.width < 10) || (oldImg.height < 10)){
-            idScreen.removeChild(oldImg);
-            clearInterval(timer);
-        }
-    }
-    let timer = setInterval(animateImg, 15);
-  }
+    oldImg.style.order = event.target === toNextImgButton ? '0': '2';
+    animationTimer = setInterval(animateImg, 15, oldImg);
+}
 
+function animateImg(img){
+    let oldImg = img;
+    oldImg.style.height = oldImg.height * 0.9 + 'px';
+    oldImg.style.width = oldImg.width * 0.9 + 'px';
+    oldImg.style.opacity *= '0.9';
+    if ((oldImg.width < 10) || (oldImg.height < 10)){
+        screen.removeChild(oldImg);
+        clearInterval(animationTimer);
+    }
+}
