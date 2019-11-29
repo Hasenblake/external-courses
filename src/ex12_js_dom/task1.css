@@ -1,0 +1,42 @@
+.body{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+}
+.screen{
+    max-width: 70%;
+    min-width: 70%;
+    height: 80%;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+    flex-basis: 70%;
+    overflow: hidden;
+    box-shadow: 0 0 7px rgba(0, 0, 0, 0.4);
+}
+.arrowButton{
+    border: 1px solid darkcyan;
+    box-shadow: 0 0 0 4px rgba(0, 139, 139, 0.1);
+    background-color: #e2ffff;
+    border-radius: 30%;
+    width:  70px;
+    height: 70px;
+    font-size: 60px;
+    line-height: 1px;
+    color: darkcyan;
+}
+.arrowButton:focus, .arrowButton:active, .arrowButton:hover{
+    border: 1px solid darkorange;
+    box-shadow: 0 0 0 7px rgba(255, 140, 0, 0.1);
+    background-color: white;
+    color: darkorange;
+    cursor: pointer;
+}
+.arrowButton:focus, .arrowButton:active{
+    border: 1px solid red;
+    color: red;
+}
