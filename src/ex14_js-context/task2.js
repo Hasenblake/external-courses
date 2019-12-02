@@ -12,7 +12,7 @@ const Hangman = function (word) {
 
     this.__startGame();
 
-    Array.toSolidString = function(arr) {
+    this.toSolidString = function(arr) {
         let newWord = '';
         for (let key of arr){
             newWord += key.toString()
@@ -31,10 +31,10 @@ const Hangman = function (word) {
             }
         }
         if (isRight){
-            if(this.letters.every((element)=>{return element === null;})){
-                console.log(Array.toSolidString(this.rightLetters) + ' | You won!');
+            if(this.letters.every((element) => element === null)){
+                console.log(this.toSolidString(this.rightLetters) + ' | You won!');
             } else {
-                console.log(Array.toSolidString(this.rightLetters));
+                console.log(this.toSolidString(this.rightLetters));
             }
         } else {
             if (!this.wrongLetters.has(letter.toLowerCase())){
@@ -42,17 +42,17 @@ const Hangman = function (word) {
             }
             this.wrongLetters.add(letter.toLowerCase());
             if (this.errors === 6){
-                console.log('wrong letter, you lose | ' + Array.toSolidString(this.letters));
+                console.log('wrong letter, you lose | ' + this.toSolidString(this.letters));
             }
             if (this.errors > 6){
-                console.log('You have already lost this game | ' + Array.toSolidString(this.letters));
+                console.log('You have already lost this game | ' + this.toSolidString(this.letters));
             }
             console.log('wrong letter, errors left ' + (6 - this.errors) + ' | ' + Array.from(this.wrongLetters));
         }
     };
 
     this.getGuessedString = function () {
-        console.log(Array.toSolidString(this.rightLetters));
+        console.log(this.toSolidString(this.rightLetters));
     };
 
     this.getErrorsLeft = function () {
@@ -64,13 +64,11 @@ const Hangman = function (word) {
     };
 
     this.getStatus = function () {
-        console.log(Array.toSolidString(this.rightLetters) + '| errors left ' + (6 - this.errors));
+        console.log(this.toSolidString(this.rightLetters) + '| errors left ' + (6 - this.errors));
     };
-    
+
     this.startAgain = function (newWord) {
         this.letters = newWord.split('');
         this.__startGame();
     };
 };
-
-

@@ -1,4 +1,4 @@
-const Calculator = new(function(){
+const Calculator = new(function Calculator(){
     this.result = 0;
     this.makeResult = function(num){
         this.result = num;
@@ -27,7 +27,7 @@ const Calculator = new(function(){
     };
     this.getResult = function () {
         return this.result;
-        };
+    };
     this.reset = function () {
         this.result = 0;
         return this;
@@ -39,8 +39,10 @@ const Calculator = new(function(){
         return this;
     };
     this.fetchData = function (callback) {
-        setTimeout(callback, 100, 500);
+        let promise = new Promise((resolve, reject) => {
+            callback.then(() => resolve());
+        });
+        promise.then(() => {this.result = 500;});
+        return this;
     };
 });
-
-
