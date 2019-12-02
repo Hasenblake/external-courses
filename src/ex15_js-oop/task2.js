@@ -1,53 +1,57 @@
-class Technics{
+class Device{
     constructor(name){
         this.techName = name;
-        this.isOn = false;
+        this.isTurnOn = false;
     }
     turnOn(){
-        this.isOn = true;
+        this.isTurnOn = true;
     }
 }
-class LowPowerTech extends Technics{
+
+class LowPowerDevice extends Device{
     constructor(name){
         super(name);
-        this.power = (Math.random() * (1.5 - 0.1) + 0.1).toFixed(1);
+        this.power = 0.5;
     }
 }
-class HighPowerTech extends Technics{
+
+class HighPowerDevice extends Device{
     constructor(name){
         super(name);
-        this.power = (Math.random() * (6 - 2) + 2).toFixed(1);
+        this.power = 5;
     }
 }
+
 class Room {
-    constructor(){
-        this.techCollection = [new HighPowerTech('Boiler'),
-            new LowPowerTech('Dryer'), new HighPowerTech('Washer'), new LowPowerTech('Toaster')];
-        this.techCollection[0].turnOn();
-        this.techCollection[1].turnOn();
-        this.techCollection[2].turnOn();
+    constructor(devices = [new HighPowerDevice('Boiler'),
+                           new LowPowerDevice('Toaster'),
+                           new LowPowerDevice('Dryer')]){
+        this.deviceCollection = devices;
+        if (arguments.length === 0) {
+            this.deviceCollection[0].turnOn(0);
+            this.deviceCollection[1].turnOn(1);
+        }
     }
+
     showTotalPower(){
         let totalPower = 0;
-        for (let key of this.techCollection){
-            if (key.isOn === true){
-                totalPower += parseFloat(key.power);
+        for (let key of this.deviceCollection){
+            if (key.isTurnOn === true){
+                totalPower += key.power;
             }
         }
-        console.log('Total power: ' + totalPower.toFixed(1) + ' kV');
-
+        console.log('Total power: ' + totalPower + ' kV');
         return totalPower;
     };
+
     findName(name){
-        for (let key of this.techCollection){
+        for (let key of this.deviceCollection){
             if (key.techName === name){
-                console.log(`${name} plugged into ${this.techCollection.indexOf(key)} socket`);
-                return this.techCollection.indexOf(key);
+                console.log(`${name} plugged into ${this.deviceCollection.indexOf(key)} socket`);
+                return this.deviceCollection.indexOf(key);
             }
         }
         console.log(`${name}  was not found`);
         return -1;
     };
 }
-
-
