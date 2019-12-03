@@ -1,6 +1,6 @@
 class Device{
     constructor(name){
-        this.techName = name;
+        this.deviceName = name;
         this.isTurnOn = false;
     }
     turnOn(){
@@ -46,7 +46,7 @@ class Room {
 
     findName(name){
         for (let key of this.deviceCollection){
-            if (key.techName === name){
+            if (key.deviceName === name){
                 console.log(`${name} plugged into ${this.deviceCollection.indexOf(key)} socket`);
                 return this.deviceCollection.indexOf(key);
             }
