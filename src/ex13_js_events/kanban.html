@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="kanban.css">
+</head>
+<body class="body">
+<header class="header">
+    <div class="headerLeft">
+        <img src="asset/logo.svg" class="logo">
+        <h1 class="title">Awesome Kanban Board</h1>
+    </div>
+    <div class="headerRight">
+        <button class="createListButton">
+            <span class="createListText">Create new list</span>
+        </button>
+        <button class="profile">
+            <div class="portrait"><img src="asset/profile.svg" alt="portrait"></div>
+            <img src="asset/arrow.svg" alt="&#8744;" class="arrow">
+        </button>
+    </div>
+</header>
+<main class="main">
+    <div class="list">
+        <div class="listCaption">Backlog<button class="listOpt">•••</button></div>
+        <button class="addCardButton"><span class="cardPlus">+</span> Add card</button>
+    </div>
+    <div class="list">
+        <div class="listCaption">Ready<button class="listOpt">•••</button></div>
+        <button class="addCardButton"><span class="cardPlus">+</span> Add card</button>
+    </div>
+    <div class="list">
+        <div class="listCaption">In progress<button class="listOpt">•••</button></div>
+        <button class="addCardButton"><span class="cardPlus">+</span> Add card</button>
+    </div>
+    <div class="list">
+        <div class="listCaption">Finished<button class="listOpt">•••</button></div>
+        <button class="addCardButton"><span class="cardPlus">+</span> Add card</button>
+    </div>
+</main>
+<footer class="footer">
+    <div class="footerLeft">
+        <p class="activeTasksCount">Active tasks: &lt;N&gt;</p>
+        <p class="finishedTasksCount">Finished tasks: &lt;M&gt;</p>
+    </div>
+    <div class="footerRight">
+        <p class="boardByText">Kanban board by &lt;NAME&gt;, &lt;YEAR&gt;</p>
+    </div>
+</footer>
+<script src="kanban.js"></script>
+</body>
+</html>

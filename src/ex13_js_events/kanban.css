@@ -1,0 +1,291 @@
+.body{
+    margin: 0;
+    padding: 0;
+    font-family: Roboto, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #0079BF;
+    overflow: hidden;
+}
+.header{
+    display: flex;
+    justify-content: space-between;
+    background: #0067A3;
+    color: white;
+    height: 55px;
+    width: 100%;
+}
+.headerLeft, .headerRight, .footerLeft, .footerRight{
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+.logo{
+    padding: 0;
+    margin-left: 14px;
+    width: 45px;
+    height: 45px;
+}
+.title{
+    margin-left: 16px;
+    font-size: 28px;
+    font-weight: normal;
+    line-height: 33px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 25vw;
+
+}
+.createListButton{
+    cursor: pointer;
+    border: none;
+    background-image: url("asset/add.svg");
+    background-size: 22px ;
+    background-color: white;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-position-x: 10px;
+    margin-right: 50px;
+    padding-left: 0.7vw;
+    padding-right: 1.1vw;
+    height: 33px;
+    max-width: 181px;
+    width: 30vw;
+    border-radius: 5px;
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    align-self: center;
+}
+.createListText{
+    font-family: Roboto, sans-serif;
+    font-weight: normal;
+    margin-bottom: 1.4vh;
+    margin-left: 30px;
+    font-size: 18px;
+    line-height: 21px;
+}
+.profile{
+    padding: 0 6px;
+    margin: 1px;
+    height: calc(100% - 2px);
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-wrap: nowrap;
+    background-color: #0067A3;
+    border: none;
+}
+.profile:hover{
+    outline: 1px solid #EBECF0;
+    cursor: pointer;
+}
+.portrait{
+    align-items: flex-end;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    background: white;
+    width: 38px;
+    height: 38px;
+    border: 2px solid white;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+.profileMenuList{
+    width: 180px;
+    white-space: nowrap;
+    z-index: 2;
+    position: absolute;
+    right: 1px;
+    top: 39px;
+    list-style-type: none;
+    padding: 0;
+    border-top: 1px solid #EBECF0;
+    background: #0067A3;
+}
+.profileMenuItem{
+    padding-top: 11px;
+    padding-bottom: 11px;
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid #EBECF0;
+    background-color: transparent;
+    font: 18px Roboto, sans-serif;
+    color: white;
+    line-height: 21px;
+    text-align: center;
+}
+.anchor{
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    height: 100%;
+}
+.footer{
+    width: 100%;
+    height: 55px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    background: #0067A3;
+    color: white;
+    font-size: 18px;
+}
+.activeTasksCount, .finishedTasksCount, .boardByText{
+    overflow: hidden;
+    display: inline-block;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.activeTasksCount{
+    margin-left: 67px;
+    width: 12vw;
+    max-width: 140px;
+}
+.finishedTasksCount{
+    margin-left: 36px;
+    width: 12vw;
+    max-width: 161px;
+}
+.boardByText{
+    margin-right: 24px;
+    width: 25vw;
+    max-width: 281px;
+}
+.main{
+    flex: 1;
+    padding: 20px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    font-size: 18px;
+    overflow-y: hidden;
+    background-color: #0079BF;
+}
+.listCaption{
+    line-height: 21px;
+    display: flex;
+    justify-content: space-between;
+}
+.list{
+    height: fit-content;
+    background-color: #EBECF0;
+    border-radius: 10px;
+    max-width: 282px;
+    min-width: 282px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px 12px 8px;
+    margin-right: 24px;
+    overflow-y: auto;
+    max-height: calc(100vh - 75px - 87px - 12px);
+}
+.listItem{
+    padding: 7px 8px 7px;
+    background-color: white;
+    border-radius: 10px;
+    border: none;
+    margin-top: 15px;
+    font-size: 18px;
+    font-family: Roboto, sans-serif;
+}
+.addCardButton{
+    font-size: 18px;
+    align-self: flex-start;
+    background-color: transparent;
+    color: #5E6C84;
+    line-height: 21px;
+    border: none;
+    cursor: pointer;
+    margin-top: 17px;
+}
+.addCardButton:hover{
+    outline: auto;
+}
+.addCardButton:disabled{
+    text-decoration: line-through;
+    opacity: 0.5;
+    outline: none;
+    cursor: not-allowed;
+}
+.addCardButton:disabled > .cardPlus{
+    display: none;
+}
+.cardPlus{
+    font-size: 24px;
+}
+.listOpt{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    font-size: 18px;
+}
+.dropdownButton{
+    width: 100%;
+    margin-top: 15px;
+    border-radius: 5px;
+    padding-bottom: 6px;
+    background-color: #5E6C84;
+    color: white;
+    border: 2px solid transparent;
+    font: 18px Roboto, sans-serif;
+    line-height: 21px;
+    white-space: pre-line;
+    margin-bottom: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropdownList{
+    width: 100%;
+    white-space: nowrap;
+    list-style-type: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0;
+}
+.dropdownItem{
+    width: 100%;
+    border-radius: 5px;
+    border: 1px dashed #0079BF;
+    font: 18px Roboto, sans-serif;
+    background-color: white;
+    color: black;
+    white-space: pre-wrap;
+    margin-top: 2px;
+    cursor: pointer;
+}
+.dropdownButton:hover, .dropdownButton:focus{
+    border: 2px solid #0079BF;
+    color: white;
+    box-shadow: 0 0 0 5px rgba(0, 121, 191, 0.2);
+}
+.dropdownItem:hover{
+    color: #0079BF;
+    border: 1px solid #0079BF;
+}
+::-webkit-scrollbar {
+    height: 12px;
+    width: 12px;
+}
+::-webkit-scrollbar-track, ::-webkit-scrollbar-track-piece  {
+    background-color: white;
+}
+::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #CBCBCB;
+}
+::-webkit-scrollbar-corner {
+    size: 0;
+    background-color: white;
+}
+::-webkit-scrollbar-button:vertical{
+    background-color: transparent;
+}
